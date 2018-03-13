@@ -1,0 +1,2 @@
+# Adivina el numero
+El usuario escribe un numero entre 1 y 10, la computadora calcula un numero en el mismo rango, si el usuario escribio el mismo numero que la computadora calculo, el usuario obtiene un punto, en caso contrario el punto es para la computadora. Gana el primero que llegue a 10 puntos.
