@@ -13,16 +13,15 @@ const (
 )
 
 func main(){
-	var userScore int = 0
-	var pcScore int =0
+	var userScore, pcScore int
 
-	for userScore < maxScore && pcScore < maxScore{
+	for userScore < maxScore && pcScore < maxScore {
 		userNumber := getUserNumber()
 		calculatedNumber := getCalculateNumber()
 
 		if userNumber == calculatedNumber {
 			fmt.Printf("El numero %d es correcto\n", userNumber)
-			userNumber++
+			userScore++
 		}else{
 			fmt.Printf("El numero %d es incorrecto, el numero correcto era %d\n", userNumber, calculatedNumber)
 			pcScore++
@@ -31,12 +30,24 @@ func main(){
 		fmt.Printf("Marcador actual:\n\tUsuario: %d\n\tPC: %d\n", userScore, pcScore)
 		time.Sleep(time.Second)
 	}
+
+	if userScore == maxScore{
+		fmt.Println("El ganador eres tu :)")
+	}else{
+		fmt.Println("El ganador es la computadora :(")
+	}
 }
 
 func getUserNumber() int {
-	var userNumber int = 0
-	fmt.Printf("Escribe un numero entero entre %d y %d: ", min, max)
-	fmt.Scanf("%d", &userNumber)	
+	var userNumber int
+	for userNumber < min || userNumber > max{
+		fmt.Printf("Escribe un numero entero entre %d y %d: ", min, max)
+		fmt.Scanf("%d", &userNumber)
+
+		if userNumber < min || userNumber > max{
+			fmt.Println("Numero incorrecto, intenta de nuevo.")
+		}
+	}
 	return userNumber
 }
 
